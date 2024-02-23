@@ -12,8 +12,9 @@ public class CalculatorGui extends JFrame implements ActionListener
     private JTextField display;
     private JButton[] numberButtons;
     private JButton[] operatorButtons;
-    private JButton equalsButton, clearButton;
+    private JButton equalsButton, clearButton, dotButton;
     private JButton sinButton, cosButton, tanButton;
+    private JButton themeButton;
     
     private Calculator calculator;
 
@@ -66,9 +67,32 @@ public class CalculatorGui extends JFrame implements ActionListener
         clearButton.setFont(new Font("Arial", Font.PLAIN, 20));
         clearButton.addActionListener(this);
         
+        dotButton = new JButton(".");
+        dotButton.setPreferredSize(new Dimension(50, 50));
+        dotButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        dotButton.addActionListener(this);
+        
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4, 4, 10, 10));
         buttonPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        
+        sinButton = new JButton("sin");
+        sinButton.addActionListener(this);
+        sinButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        
+        
+        cosButton = new JButton("cos");
+        cosButton.addActionListener(this);
+        cosButton.setFont(new Font("Arial", Font.PLAIN, 20));
+               
+        
+        tanButton = new JButton("tan");
+        tanButton.addActionListener(this);
+        tanButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        
+        themeButton = new JButton("💡");
+        themeButton.addActionListener(this);
+        themeButton.setFont(new Font("Arial", Font.PLAIN, 20));
         
         buttonPanel.add(numberButtons[7]);
         buttonPanel.add(numberButtons[8]);
@@ -85,22 +109,15 @@ public class CalculatorGui extends JFrame implements ActionListener
         buttonPanel.add(numberButtons[0]);
         buttonPanel.add(equalsButton);
         buttonPanel.add(clearButton);
+        buttonPanel.add(dotButton);
         buttonPanel.add(operatorButtons[3]);
-        
-        sinButton = new JButton("sin");
-        sinButton.addActionListener(this);
-        sinButton.setFont(new Font("Arial", Font.PLAIN, 20));
         buttonPanel.add(sinButton);
+        buttonPanel.add(cosButton);
+        buttonPanel.add(tanButton);
+        buttonPanel.add(themeButton);
         
-        cosButton = new JButton("cos");
-        cosButton.addActionListener(this);
-        cosButton.setFont(new Font("Arial", Font.PLAIN, 20));
-        buttonPanel.add(cosButton);       
-        
-        tanButton = new JButton("tan");
-        tanButton.addActionListener(this);
-        tanButton.setFont(new Font("Arial", Font.PLAIN, 20));
-        buttonPanel.add(tanButton); 
+
+         
         
         add(display, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
