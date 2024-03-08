@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.GridLayout;
+
 import javax.swing.border.EmptyBorder;
 
 
@@ -14,7 +14,6 @@ public class CalculatorGui extends JFrame implements ActionListener
     private JButton[] operatorButtons;
     private JButton equalsButton, clearButton, dotButton;
     private JButton sinButton, cosButton, tanButton;
-    private JButton themeButton;
     
     private Calculator calculator;
 
@@ -90,10 +89,6 @@ public class CalculatorGui extends JFrame implements ActionListener
         tanButton.addActionListener(this);
         tanButton.setFont(new Font("Arial", Font.PLAIN, 20));
         
-        themeButton = new JButton("💡");
-        themeButton.addActionListener(this);
-        themeButton.setFont(new Font("Arial", Font.PLAIN, 20));
-        
         buttonPanel.add(numberButtons[7]);
         buttonPanel.add(numberButtons[8]);
         buttonPanel.add(numberButtons[9]);
@@ -114,7 +109,6 @@ public class CalculatorGui extends JFrame implements ActionListener
         buttonPanel.add(sinButton);
         buttonPanel.add(cosButton);
         buttonPanel.add(tanButton);
-        buttonPanel.add(themeButton);
         
 
          
@@ -164,7 +158,15 @@ public class CalculatorGui extends JFrame implements ActionListener
         {
             try {
                 UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-            } catch (Exception e) {
+                // Customize the Nimbus look and feel for a neon theme
+                UIManager.put("nimbusBase", new Color(50, 50, 50));
+                UIManager.put("nimbusBlueGrey", new Color(0, 50, 100));
+                UIManager.put("control", new Color(30, 30, 30));
+                UIManager.put("nimbusLightBackground", new Color(50, 50, 50));
+                UIManager.put("nimbusSelectionBackground", new Color(0, 80, 255));
+                UIManager.put("nimbusFocus", new Color(100, 100, 100));
+                UIManager.put("nimbusOrange", new Color(255, 80, 0));
+            }   catch (Exception e) {
                 e.printStackTrace();
             }
             SwingUtilities.invokeLater(() -> {
